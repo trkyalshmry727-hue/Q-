@@ -147,6 +147,20 @@ textarea.field{min-height:130px;resize:vertical}
 .spin{width:28px;height:28px;border:3px solid #333;border-top-color:var(--y);border-radius:50%;animation:sp 1s linear infinite;margin:30px auto}
 @keyframes sp{to{transform:rotate(360deg)}}
 </style>
+<script>
+/* إذا المتصفح مصغّر الصفحة، نكبّرها تلقائيًا عشان تطلع بحجم الجوال */
+(function(){
+  function fit(){
+    var de=document.documentElement; de.style.zoom="";
+    if(!(navigator.maxTouchPoints>0)) return;
+    var land=Math.abs(window.orientation||0)===90;
+    var sw=land?Math.max(screen.width,screen.height):Math.min(screen.width,screen.height);
+    var w=window.innerWidth;
+    if(sw>0 && w>sw*1.12) de.style.zoom=(w/sw).toFixed(3);
+  }
+  fit(); window.addEventListener("resize",fit); window.addEventListener("orientationchange",function(){ setTimeout(fit,300) });
+})();
+</script>
 </head>
 <body>
 
