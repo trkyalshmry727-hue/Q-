@@ -417,12 +417,9 @@ var KT={
 };
 function setKind(k){ KIND=k; var x=KT[k]; $("#kBub").textContent=x.bub; $("#sText").placeholder=x.ph; $("#kSent").textContent=x.sent; $("#another").textContent=x.another; }
 function openWallet(){
-  var w=$("#walletApp");
-  if(!$("#wframe")){
-    w.innerHTML='<div class="wtop"><a href="#" onclick="closeWallet();return false">→ رجوع</a><b>المحفظة</b><span></span></div>'
-      +'<iframe id="wframe" title="المحفظة" src="'+WALLET_URL+'?v='+Date.now()+'"></iframe>';
-  } else { try{ $("#wframe").contentWindow.draw() }catch(e){} }
-  w.classList.remove("hidden");
+  /* المحفظة تفتح كصفحة كاملة (داخل إطار كانت تطلع مكبّرة في الآيفون) */
+  try{ if(location.hash) history.replaceState(null,"",location.pathname+location.search) }catch(e){}
+  location.href=WALLET_URL;
 }
 function closeWallet(){ if(location.hash==="#wallet") history.back(); else $("#walletApp").classList.add("hidden") }
 window.closeWallet=closeWallet;
@@ -444,7 +441,7 @@ window.addEventListener("hashchange",function(){ show(location.hash.slice(1)) })
 document.addEventListener("click",function(e){
   var g=e.target.closest("[data-go]"); if(g){ go(g.dataset.go); return; }
   if(e.target.closest("[data-play]")) location.href=GAME_URL;
-  if(e.target.closest("[data-href]")) go("wallet");
+  if(e.target.closest("[data-href]")) openWallet();
 });
 
 /* ===== التسريبات ===== */
