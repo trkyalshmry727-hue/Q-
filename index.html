@@ -254,7 +254,8 @@ html:not(.unlocked) body{overflow:hidden}
 </style>
 <script>
 var LOCK_HASH="214d6d3883d399d5d7d4200714952fb2dd230cf92e3231bf488f870b924023a4";
-try{ if(localStorage.getItem("rpmx_unlock")===LOCK_HASH) document.documentElement.classList.add("unlocked") }catch(e){}
+/* القفل يطلب الرمز كل مرة ينفتح فيها الموقع */
+try{ localStorage.removeItem("rpmx_unlock") }catch(e){}
 </script>
 </head>
 <body>
@@ -279,7 +280,7 @@ try{ if(localStorage.getItem("rpmx_unlock")===LOCK_HASH) document.documentElemen
     var v=I.value.replace(/[٠-٩]/g,function(d){ return "٠١٢٣٤٥٦٧٨٩".indexOf(d) }).replace(/\D/g,"");
     if(v.length!==7){ E.textContent="الرمز لازم يكون ٧ أرقام"; return }
     crypto.subtle.digest("SHA-256",new TextEncoder().encode("rpmx-lock|"+v)).then(function(b){
-      if(hex(b)===LOCK_HASH){ try{ localStorage.setItem("rpmx_unlock",LOCK_HASH) }catch(e){} document.documentElement.classList.add("unlocked"); I.blur() }
+      if(hex(b)===LOCK_HASH){ document.documentElement.classList.add("unlocked"); I.value=""; I.blur() }
       else { E.textContent="الرمز غلط"; I.value=""; F.classList.remove("shake"); void F.offsetWidth; F.classList.add("shake") }
     });
   }
