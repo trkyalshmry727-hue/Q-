@@ -230,9 +230,65 @@ textarea.field{min-height:130px;resize:vertical}
   fit(); window.addEventListener("resize",fit); window.addEventListener("orientationchange",function(){ setTimeout(fit,300) });
 })();
 </script>
+<style>
+/* ===== قفل الموقع ===== */
+#lockScr{position:fixed;inset:0;z-index:99999;background:radial-gradient(circle at 50% 30%,#2a2306 0,#0b0b0d 60%);color:#f4f4f5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;font-family:"Cairo",system-ui,-apple-system,sans-serif}
+html.unlocked #lockScr{display:none}
+html:not(.unlocked) body{overflow:hidden}
+#lockScr .lk-lg{font-weight:900;font-size:44px;font-style:italic;direction:ltr;letter-spacing:1px}
+#lockScr .lk-lg b{color:#ffd400}
+#lockScr .lk-ic{width:84px;height:84px;border-radius:50%;background:#2a2306;border:2px solid #5a4a0a;display:flex;align-items:center;justify-content:center;color:#ffd400}
+#lockScr .lk-ic svg{width:40px;height:40px}
+#lockScr h1{margin:0;font-size:24px;font-weight:900}
+#lockScr p{margin:0;color:#9a9aa3;font-size:15px}
+#lockScr .lk-btn{border:0;font:inherit;font-weight:800;font-size:17px;background:#ffd400;color:#111;padding:12px 40px;border-radius:999px;cursor:pointer;margin-top:8px}
+#lockScr .lk-btn:active{transform:scale(.96)}
+#lockForm{display:none;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:320px}
+#lockScr.ask #lockForm{display:flex}
+#lockScr.ask #lockOpen{display:none}
+#lockIn{width:100%;text-align:center;font-size:30px;font-weight:800;letter-spacing:10px;direction:ltr;padding:12px 0 12px 10px;background:#151518;border:2px solid #26262c;border-radius:16px;color:#fff;outline:none;font-family:inherit}
+#lockIn:focus{border-color:#ffd400}
+#lockErr{color:#f87171;font-size:14px;min-height:20px;font-weight:700}
+#lockForm.shake{animation:lkshake .35s}
+@keyframes lkshake{25%{transform:translateX(8px)}50%{transform:translateX(-8px)}75%{transform:translateX(5px)}}
+</style>
+<script>
+var LOCK_HASH="214d6d3883d399d5d7d4200714952fb2dd230cf92e3231bf488f870b924023a4";
+/* القفل يطلب الرمز كل مرة ينفتح فيها الموقع */
+try{ localStorage.removeItem("rpmx_unlock") }catch(e){}
+</script>
 </head>
 <body>
-
+<div id="lockScr">
+  <div class="lk-lg">RPM<b>X</b></div>
+  <div class="lk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+  <h1>حالياً الموقع مقفل</h1>
+  <p>ارجع لنا بعدين إن شاء الله</p>
+  <button class="lk-btn" id="lockOpen" type="button">الرمز</button>
+  <div id="lockForm">
+    <input id="lockIn" inputmode="numeric" pattern="[0-9]*" maxlength="7" autocomplete="off" placeholder="•••••••">
+    <div id="lockErr"></div>
+    <button class="lk-btn" id="lockGo" type="button">دخول</button>
+  </div>
+</div>
+<script>
+(function(){
+  var S=document.getElementById("lockScr"), I=document.getElementById("lockIn"), E=document.getElementById("lockErr"), F=document.getElementById("lockForm");
+  document.getElementById("lockOpen").onclick=function(){ S.classList.add("ask"); E.textContent=""; setTimeout(function(){ I.focus() },50) };
+  function hex(b){ return Array.prototype.map.call(new Uint8Array(b),function(x){ return ("0"+x.toString(16)).slice(-2) }).join("") }
+  function check(){
+    var v=I.value.replace(/[٠-٩]/g,function(d){ return "٠١٢٣٤٥٦٧٨٩".indexOf(d) }).replace(/\D/g,"");
+    if(v.length!==7){ E.textContent="الرمز لازم يكون ٧ أرقام"; return }
+    crypto.subtle.digest("SHA-256",new TextEncoder().encode("rpmx-lock|"+v)).then(function(b){
+      if(hex(b)===LOCK_HASH){ document.documentElement.classList.add("unlocked"); I.value=""; I.blur() }
+      else { E.textContent="الرمز غلط"; I.value=""; F.classList.remove("shake"); void F.offsetWidth; F.classList.add("shake") }
+    });
+  }
+  I.oninput=function(){ var v=I.value.replace(/[٠-٩]/g,function(d){ return "٠١٢٣٤٥٦٧٨٩".indexOf(d) }).replace(/\D/g,"").slice(0,7); I.value=v; if(v.length===7) check() };
+  I.onkeydown=function(e){ if(e.key==="Enter") check() };
+  document.getElementById("lockGo").onclick=check;
+})();
+</script>
 
 <div id="bgl"></div>
 <div id="walletApp" class="hidden"></div>
