@@ -20,6 +20,7 @@ var WALLET_URL = "https://trkyalshmry727-hue.github.io/cc/";
 (function(){ try{ var s=localStorage.getItem("rpmx_theme")||"dark"; var th=s==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):s; document.documentElement.setAttribute("data-theme",th) }catch(e){} })();
 </script>
 <script src="config.js?v=3"></script>
+<script src="https://accounts.google.com/gsi/client" async></script>
 <link rel="icon" href="data:image/jpeg;base64,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">
 <link rel="apple-touch-icon" id="aticon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -180,7 +181,7 @@ textarea.field{min-height:130px;resize:vertical}
 .chip{flex:none;padding:6px 14px;border-radius:999px;background:var(--card2);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--m)}
 .chip.on{background:var(--y);color:#111;border-color:var(--yt)}
 .kt{font-size:11px;font-weight:800;padding:1px 8px;border-radius:999px}
-.kt.s{background:#3a3208;color:var(--yt)}.kt.p{background:#3b0d0d;color:#fca5a5}.kt.q{background:#0c2a4a;color:#93c5fd}
+.kt.s{background:#3a3208;color:var(--yt)}.kt.p{background:#3b0d0d;color:#fca5a5}.kt.q{background:#0c2a4a;color:#93c5fd}.kt.t{background:#06321f;color:#6ee7b7}
 /* المحفظة */
 .wcard{position:relative;overflow:hidden;border-radius:22px;padding:20px;background:linear-gradient(135deg,#ff8a00,#e52e71);box-shadow:0 10px 30px #e52e7144;margin-bottom:14px}
 .wcard::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#ffffff22;left:-50px;top:-60px}
@@ -270,6 +271,7 @@ textarea.field{min-height:130px;resize:vertical}
   <h2>الألعاب<button class="more" data-go="games">عرض الكل</button></h2>
   <div class="grid">
     <div class="gcard"><span class="badge">جديد</span><img data-icon alt=""><div class="in"><div class="nm">RPMX</div><button class="btn blue" data-play>العب الآن</button></div></div>
+    <div class="gcard icon"><span class="badge" style="background:#2563eb">تجريبي</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-4.5A2 2 0 0 1 6.4 3h11.2a2 2 0 0 1 1.9 1.5L21 9"/><path d="M3 9h18v3a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/><path d="M9 21v-5h6v5"/></svg><div class="in"><div class="nm">معرض المشاكل</div><button class="btn blue" data-tester>العب الآن</button></div></div>
   </div>
 
   </section>
@@ -279,6 +281,7 @@ textarea.field{min-height:130px;resize:vertical}
   <h2>الألعاب</h2>
   <div class="grid">
     <div class="gcard"><span class="badge">جديد</span><img data-icon alt=""><div class="in"><div class="nm">RPMX</div><button class="btn blue" data-play>العب الآن</button></div></div>
+    <div class="gcard icon"><span class="badge" style="background:#2563eb">تجريبي</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-4.5A2 2 0 0 1 6.4 3h11.2a2 2 0 0 1 1.9 1.5L21 9"/><path d="M3 9h18v3a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/><path d="M9 21v-5h6v5"/></svg><div class="in"><div class="nm">معرض المشاكل</div><button class="btn blue" data-tester>العب الآن</button></div></div>
   </div>
 </section>
 
@@ -369,7 +372,7 @@ textarea.field{min-height:130px;resize:vertical}
       <button class="more" id="refresh">تحديث ↻</button>
     </div>
     <div id="localNote" class="note hidden">الاقتراحات تنحفظ في جوالك هذا تلقائيًا كل ما فتحت الموقع.</div>
-    <div class="chips" id="chips"><button class="chip on" data-f="all">الكل</button><button class="chip" data-f="s">الاقتراحات</button><button class="chip" data-f="p">المشاكل</button><button class="chip" data-f="q">الاستفسارات</button></div>
+    <div class="chips" id="chips"><button class="chip on" data-f="all">الكل</button><button class="chip" data-f="s">الاقتراحات</button><button class="chip" data-f="p">المشاكل</button><button class="chip" data-f="q">الاستفسارات</button><button class="chip" data-f="t">المجربين</button></div>
     <div id="list"></div>
     <div class="row"><button class="btn ghost" id="lockBtn">قفل الرسايل</button></div>
   </div>
@@ -413,6 +416,36 @@ textarea.field{min-height:130px;resize:vertical}
   </div>
 </div>
 
+<style>
+.tsor{display:flex;align-items:center;gap:10px;color:var(--m);font-size:13px;margin:12px 0}
+.tsor::before,.tsor::after{content:"";flex:1;height:1px;background:var(--line)}
+#gbtn>div{width:100%!important}
+</style>
+<!-- بوابة المجرّبين -->
+<div class="modal hidden" id="tsModal"><div class="box" id="tsBox">
+  <div id="tsAsk">
+    <div style="font-size:46px">🎮</div>
+    <h3>لعبة «معرض المشاكل»</h3>
+    <p>اللعبة حالياً للمجرّبين بس. تبي تصير من مجرّبين اللعبة؟</p>
+    <div class="row"><button class="btn ghost" id="tsNo">لا</button><button class="btn" id="tsYes">نعم</button></div>
+  </div>
+  <div id="tsForm" class="hidden" style="text-align:right">
+    <div style="text-align:center"><h3 style="margin:0 0 4px">طلب انضمام للمجرّبين</h3><p>سجّل عشان يشوفك المطوّر ويقبلك</p></div>
+    <div id="gbtn" style="display:flex;justify-content:center;margin-bottom:6px"></div>
+    <div id="gwait" class="hint hidden" style="text-align:center">يفتح تسجيل قوقل...</div>
+    <div class="tsor"><span>أو سجّل يدويًا</span></div>
+    <input class="field" id="tsName" maxlength="40" placeholder="اسمك (عشان المطوّر يقبلك) *">
+    <input class="field" id="tsContact" maxlength="60" placeholder="وسيلة تواصل (اختياري): رقم أو حساب" style="margin-top:8px">
+    <textarea class="field" id="tsMsg" maxlength="400" placeholder="ليش تبي تجرّب اللعبة؟ (اختياري)" style="margin-top:8px;min-height:70px"></textarea>
+    <div class="row"><button class="btn ghost" id="tsBack">رجوع</button><button class="btn" id="tsSend">متابعة</button></div>
+  </div>
+  <div id="tsDone" class="hidden">
+    <div style="font-size:50px">⏳</div>
+    <h3>جاري المراجعة</h3>
+    <p>إن شاء الله يتم قبول حسابك وتقدر تلعب اللعبة. بنتواصل معك.</p>
+    <div class="row"><button class="btn" id="tsClose">تمام</button></div>
+  </div>
+</div></div>
 <!-- عارض الصور -->
 <div class="checking hidden" id="checking"><div class="spin"></div><div>النظام يفحص الصورة...</div><div class="hint" style="color:#ccc">أول مرة تاخذ ثواني</div></div>
 <div class="modal hidden" id="badModal"><div class="box"><div style="font-size:46px">⛔</div><h3>النظام: هذي الصورة غير أخلاقية</h3><p>ممنوع تحطها خلفية. حط صورة غيرها.</p><div class="row"><button class="btn" id="badOk">طيب</button></div></div></div>
@@ -486,7 +519,54 @@ document.addEventListener("click",function(e){
   var g=e.target.closest("[data-go]"); if(g){ go(g.dataset.go); return; }
   if(e.target.closest("[data-play]")) location.href=GAME_URL;
   if(e.target.closest("[data-href]")) openWallet();
+  if(e.target.closest("[data-tester]")) openTester();
 });
+
+/* ===== بوابة المجرّبين (معرض المشاكل) ===== */
+var GCID="886241004308-mnhcp7oo6cf7el4fee6kjd75peffju1s.apps.googleusercontent.com";
+var gInited=false, tsSending=false;
+function openTester(){
+  $("#tsAsk").classList.remove("hidden"); $("#tsForm").classList.add("hidden"); $("#tsDone").classList.add("hidden");
+  $("#tsModal").classList.remove("hidden");
+}
+function closeTester(){ $("#tsModal").classList.add("hidden") }
+$("#tsNo").onclick=closeTester;
+$("#tsClose").onclick=closeTester;
+$("#tsModal").onclick=function(e){ if(e.target.id==="tsModal") closeTester() };
+$("#tsBack").onclick=function(){ $("#tsForm").classList.add("hidden"); $("#tsAsk").classList.remove("hidden") };
+$("#tsYes").onclick=function(){ $("#tsAsk").classList.add("hidden"); $("#tsForm").classList.remove("hidden"); initGoogle(); };
+function jwt(t){ try{ var p=t.split(".")[1].replace(/-/g,"+").replace(/_/g,"/"); return JSON.parse(decodeURIComponent(escape(atob(p)))) }catch(e){ return {} } }
+function initGoogle(){
+  if(gInited) return;
+  function tryInit(){
+    if(!(window.google&&google.accounts&&google.accounts.id)){ return false }
+    google.accounts.id.initialize({client_id:GCID, callback:onGoogle, ux_mode:"popup"});
+    google.accounts.id.renderButton($("#gbtn"),{theme:"filled_blue",size:"large",text:"continue_with",shape:"pill",locale:"ar"});
+    gInited=true; return true;
+  }
+  if(!tryInit()){ var n=0, iv=setInterval(function(){ if(tryInit()||++n>40) clearInterval(iv) },150) }
+}
+function onGoogle(resp){
+  var p=jwt(resp.credential||"");
+  submitTester(p.name||"", p.email||"", "", "", "قوقل");
+}
+function submitTester(name,email,contact,msg,via){
+  if(tsSending) return; tsSending=true;
+  var lines=[];
+  if(email) lines.push("📧 "+email);
+  if(contact) lines.push("📱 "+contact);
+  if(msg) lines.push("💬 "+msg);
+  lines.push("عبر: "+via);
+  var m={sid:newId(),uid:UID,kind:"t",name:(name||"مجرّب").slice(0,40),text:lines.join("\n"),imgs:[],t:Date.now()};
+  backend.send(m).then(function(){ return rememberMine(m) }).then(function(){
+    $("#tsForm").classList.add("hidden"); $("#tsAsk").classList.add("hidden"); $("#tsDone").classList.remove("hidden");
+  }).catch(function(){ toast("صار خطأ، جرّب مرة ثانية",1) }).then(function(){ tsSending=false });
+}
+$("#tsSend").onclick=function(){
+  var name=$("#tsName").value.trim();
+  if(!name){ toast("اكتب اسمك أول",1); $("#tsName").focus(); return; }
+  submitTester(name, "", $("#tsContact").value.trim(), $("#tsMsg").value.trim(), "يدوي");
+};
 
 /* ===== التسريبات ===== */
 (function(){
@@ -754,10 +834,10 @@ function repsHtml(box,reps){
 function msgCard(m,dev){
   var d=document.createElement("div"); d.className="msg";
   d.innerHTML='<div class="h"><b></b><span></span></div><p></p><div class="ims"></div><div class="reps"></div>';
-  var isP=m.kind==="p", isQ=m.kind==="q";
-  d.querySelector("b").textContent=dev?(m.name||"زائر"):(isP?"مشكلتك":(isQ?"استفسارك":"اقتراحك"));
+  var isP=m.kind==="p", isQ=m.kind==="q", isT=m.kind==="t";
+  d.querySelector("b").textContent=dev?(m.name||"زائر"):(isP?"مشكلتك":(isQ?"استفسارك":(isT?"طلبك":"اقتراحك")));
   var tm=d.querySelector(".h span"); tm.textContent=fmt(m.t);
-  if(dev){ var kt=document.createElement("span"); kt.className="kt "+(isP?"p":(isQ?"q":"s")); kt.textContent=isP?"مشكلة":(isQ?"استفسار":"اقتراح"); d.querySelector(".h").insertBefore(kt,tm) }
+  if(dev){ var kt=document.createElement("span"); kt.className="kt "+(isP?"p":(isQ?"q":(isT?"t":"s"))); kt.textContent=isP?"مشكلة":(isQ?"استفسار":(isT?"مجرّب":"اقتراح")); d.querySelector(".h").insertBefore(kt,tm) }
   d.querySelector("p").textContent=m.text||"";
   var imgs=(Array.isArray(m.imgs)?m.imgs:[]).filter(Boolean);
   imgs.forEach(function(src,i){ var im=document.createElement("img"); im.src=src; im.alt=""; im.onclick=function(){ openLB(imgs,i) }; d.querySelector(".ims").appendChild(im) });
@@ -795,10 +875,10 @@ function loadList(){
   backend.inbox().then(function(a){
     a.sort(function(x,y){ return (y.t||0)-(x.t||0) });
     L.innerHTML="";
-    var nS=a.filter(function(m){ return (m.kind||"s")==="s" }).length, nP=a.filter(function(m){ return m.kind==="p" }).length, nQ=a.filter(function(m){ return m.kind==="q" }).length;
+    var nS=a.filter(function(m){ return (m.kind||"s")==="s" }).length, nP=a.filter(function(m){ return m.kind==="p" }).length, nQ=a.filter(function(m){ return m.kind==="q" }).length, nT=a.filter(function(m){ return m.kind==="t" }).length;
     if(FILTER!=="all") a=a.filter(function(m){ return (m.kind||"s")===FILTER });
     if(!a.length){ L.innerHTML='<div class="empty">ما فيه رسايل هنا للحين</div>'; return; }
-    var c=document.createElement("div"); c.className="hint"; c.style.marginBottom="8px"; c.textContent="الاقتراحات: "+nS+" · المشاكل: "+nP+" · الاستفسارات: "+nQ; L.appendChild(c);
+    var c=document.createElement("div"); c.className="hint"; c.style.marginBottom="8px"; c.textContent="اقتراحات: "+nS+" · مشاكل: "+nP+" · استفسارات: "+nQ+" · مجرّبين: "+nT; L.appendChild(c);
     a.forEach(function(m){
       var d=msgCard(m,true);
       if(!Object.keys(m.replies||{}).length){ var tg=document.createElement("span"); tg.className="newtag"; tg.textContent="بدون رد"; d.querySelector(".h").appendChild(tg) }
