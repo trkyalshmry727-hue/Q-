@@ -162,8 +162,8 @@ textarea.field{min-height:130px;resize:vertical}
 
 /* الشريط السفلي */
 .nav{position:fixed;inset:auto 0 0 0;z-index:30;display:flex;background:#fff;border-top:1px solid #e5e5e5;padding-bottom:var(--safe-b)}
-.nav button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 6px;color:#111;font-size:9.5px;font-weight:700;position:relative;white-space:nowrap;letter-spacing:-.3px}
-.nav svg{width:20px;height:20px}
+.nav button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 6px;color:#111;font-size:8.6px;font-weight:700;position:relative;white-space:nowrap;letter-spacing:-.35px}
+.nav svg{width:19px;height:19px}
 .nav button.on{color:#2563eb}
 .nav button.on::after{content:"";position:absolute;bottom:0;left:15%;right:15%;height:3px;background:#2563eb;border-radius:3px 3px 0 0}
 .dot{position:absolute;top:6px;left:calc(50% - 18px);width:10px;height:10px;border-radius:50%;background:var(--r);border:2px solid #fff}
@@ -180,7 +180,7 @@ textarea.field{min-height:130px;resize:vertical}
 .chip{flex:none;padding:6px 14px;border-radius:999px;background:var(--card2);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--m)}
 .chip.on{background:var(--y);color:#111;border-color:var(--yt)}
 .kt{font-size:11px;font-weight:800;padding:1px 8px;border-radius:999px}
-.kt.s{background:#3a3208;color:var(--yt)}.kt.p{background:#3b0d0d;color:#fca5a5}
+.kt.s{background:#3a3208;color:var(--yt)}.kt.p{background:#3b0d0d;color:#fca5a5}.kt.q{background:#0c2a4a;color:#93c5fd}
 /* المحفظة */
 .wcard{position:relative;overflow:hidden;border-radius:22px;padding:20px;background:linear-gradient(135deg,#ff8a00,#e52e71);box-shadow:0 10px 30px #e52e7144;margin-bottom:14px}
 .wcard::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#ffffff22;left:-50px;top:-60px}
@@ -369,7 +369,7 @@ textarea.field{min-height:130px;resize:vertical}
       <button class="more" id="refresh">تحديث ↻</button>
     </div>
     <div id="localNote" class="note hidden">الاقتراحات تنحفظ في جوالك هذا تلقائيًا كل ما فتحت الموقع.</div>
-    <div class="chips" id="chips"><button class="chip on" data-f="all">الكل</button><button class="chip" data-f="s">الاقتراحات</button><button class="chip" data-f="p">المشاكل</button></div>
+    <div class="chips" id="chips"><button class="chip on" data-f="all">الكل</button><button class="chip" data-f="s">الاقتراحات</button><button class="chip" data-f="p">المشاكل</button><button class="chip" data-f="q">الاستفسارات</button></div>
     <div id="list"></div>
     <div class="row"><button class="btn ghost" id="lockBtn">قفل الرسايل</button></div>
   </div>
@@ -432,6 +432,7 @@ textarea.field{min-height:130px;resize:vertical}
 <button data-go="news"><span class="dot" id="navDotN"></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h13a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V5a1 1 0 0 1 1-1zm15 5v9a1 1 0 0 0 2 0V9zM6 7v4h5V7zm7 0v2h4V7zm0 4v2h4v-2zm-7 3v2h11v-2z"/></svg>الأخبار</button>
   <button data-go="suggest"><span class="dot hidden" id="navDot"></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 1-2zm3 5v2h10V8zm0 4v2h7v-2z"/></svg>الاقتراحات</button>
   <button data-go="problems"><span class="dot hidden" id="navDotP"></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM11 9h2v5h-2zm0 7h2v2h-2z"/></svg>المشاكل</button>
+  <button data-go="ask"><span class="dot hidden" id="navDotQ"></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1 14v2h2v-2zm1-10a4 4 0 0 0-4 4h2a2 2 0 1 1 3 1.7c-1.2.7-2 1.6-2 3.3h2c0-1 .4-1.4 1.1-1.9A4 4 0 0 0 12 6z"/></svg>الاستفسار</button>
   <button data-go="settings"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.6 7.6 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.7 1.7 1l.4 2.6h4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.5 1 2-3.5zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>الإعدادات</button>
 </nav>
 
@@ -454,7 +455,8 @@ var NEWS_ID="cars10-2026-11-26";
 var KIND="s";
 var KT={
   s:{bub:"هلا والله! اكتب اقتراحك للعبة، وتقدر ترفق صور، وبعدين اضغط «إرسال» فوق. اقتراحك يوصلني أنا بس، وإذا رديت عليك يطلع ردي تحت.",ph:"اكتب اقتراحك هنا...",sent:"وصل اقتراحك!",another:"اقتراح ثاني",empty:"اكتب اقتراحك أول"},
-  p:{bub:"عندك مشكلة في اللعبة؟ اكتبها بالتفصيل (وش صار ومتى)، وأرفق صورة للشاشة إذا تقدر، وبعدين اضغط «إرسال» فوق. توصلني أنا بس، وإذا رديت عليك يطلع ردي تحت.",ph:"اكتب مشكلتك هنا...",sent:"وصلت مشكلتك!",another:"مشكلة ثانية",empty:"اكتب مشكلتك أول"}
+  p:{bub:"عندك مشكلة في اللعبة؟ اكتبها بالتفصيل (وش صار ومتى)، وأرفق صورة للشاشة إذا تقدر، وبعدين اضغط «إرسال» فوق. توصلني أنا بس، وإذا رديت عليك يطلع ردي تحت.",ph:"اكتب مشكلتك هنا...",sent:"وصلت مشكلتك!",another:"مشكلة ثانية",empty:"اكتب مشكلتك أول"},
+  q:{bub:"عندك سؤال أو استفسار عن اللعبة؟ اكتبه هنا واضغط «إرسال» فوق. يوصلني أنا بس، وإذا رديت عليك يطلع ردي تحت.",ph:"اكتب استفسارك هنا...",sent:"وصل استفسارك!",another:"استفسار ثاني",empty:"اكتب استفسارك أول"}
 };
 function setKind(k){ KIND=k; var x=KT[k]; $("#kBub").textContent=x.bub; $("#sText").placeholder=x.ph; $("#kSent").textContent=x.sent; $("#another").textContent=x.another; }
 function openWallet(){
@@ -469,7 +471,7 @@ function show(p){
   $("#walletApp").classList.add("hidden");
   if(p==="inbox"){ show("suggest"); setTimeout(function(){ if(sessionStorage.getItem("rpmx_ok")==="1") openInbox(); else askCode() },0); return; }
   var navKey=p;
-  if(p==="problems"){ setKind("p"); p="suggest"; } else if(p==="suggest") setKind("s");
+  if(p==="problems"){ setKind("p"); p="suggest"; } else if(p==="ask"){ setKind("q"); p="suggest"; } else if(p==="suggest") setKind("s");
   if(PAGES.indexOf(p)<0){ p="home"; navKey="home"; }
   PAGES.forEach(function(x){ $("#p-"+x).classList.toggle("hidden", x!==p) });
   $$(".nav button").forEach(function(b){ b.classList.toggle("on", b.dataset.go===navKey) });
@@ -752,10 +754,10 @@ function repsHtml(box,reps){
 function msgCard(m,dev){
   var d=document.createElement("div"); d.className="msg";
   d.innerHTML='<div class="h"><b></b><span></span></div><p></p><div class="ims"></div><div class="reps"></div>';
-  var isP=m.kind==="p";
-  d.querySelector("b").textContent=dev?(m.name||"زائر"):(isP?"مشكلتك":"اقتراحك");
+  var isP=m.kind==="p", isQ=m.kind==="q";
+  d.querySelector("b").textContent=dev?(m.name||"زائر"):(isP?"مشكلتك":(isQ?"استفسارك":"اقتراحك"));
   var tm=d.querySelector(".h span"); tm.textContent=fmt(m.t);
-  if(dev){ var kt=document.createElement("span"); kt.className="kt "+(isP?"p":"s"); kt.textContent=isP?"مشكلة":"اقتراح"; d.querySelector(".h").insertBefore(kt,tm) }
+  if(dev){ var kt=document.createElement("span"); kt.className="kt "+(isP?"p":(isQ?"q":"s")); kt.textContent=isP?"مشكلة":(isQ?"استفسار":"اقتراح"); d.querySelector(".h").insertBefore(kt,tm) }
   d.querySelector("p").textContent=m.text||"";
   var imgs=(Array.isArray(m.imgs)?m.imgs:[]).filter(Boolean);
   imgs.forEach(function(src,i){ var im=document.createElement("img"); im.src=src; im.alt=""; im.onclick=function(){ openLB(imgs,i) }; d.querySelector(".ims").appendChild(im) });
@@ -774,11 +776,11 @@ function loadMine(markSeen){
     a.forEach(function(m){ L.appendChild(msgCard(m,false)) });
     $("#mine").classList.toggle("hidden",!a.length || $("#compose").classList.contains("hidden"));
     var newAny=false;
-    ["s","p"].forEach(function(k){
+    ["s","p","q"].forEach(function(k){
       var key="rpmx_seen_"+k; if(k==="s" && localStorage.getItem(key)===null && localStorage.getItem("rpmx_seen")) localStorage.setItem(key,localStorage.getItem("rpmx_seen"));
       var total=countReps(all.filter(function(m){ return (m.kind||"s")===k })), seen=+localStorage.getItem(key)||0;
       if((markSeen||onPage) && k===KIND && total>seen){ localStorage.setItem(key,total); seen=total }
-      $(k==="s"?"#navDot":"#navDotP").classList.toggle("hidden",!(total>seen));
+      $(k==="s"?"#navDot":(k==="p"?"#navDotP":"#navDotQ")).classList.toggle("hidden",!(total>seen));
       if(total>seen) newAny=true;
     });
     var tot=countReps(all);
@@ -793,10 +795,10 @@ function loadList(){
   backend.inbox().then(function(a){
     a.sort(function(x,y){ return (y.t||0)-(x.t||0) });
     L.innerHTML="";
-    var nS=a.filter(function(m){ return (m.kind||"s")!=="p" }).length, nP=a.length-nS;
+    var nS=a.filter(function(m){ return (m.kind||"s")==="s" }).length, nP=a.filter(function(m){ return m.kind==="p" }).length, nQ=a.filter(function(m){ return m.kind==="q" }).length;
     if(FILTER!=="all") a=a.filter(function(m){ return (m.kind||"s")===FILTER });
     if(!a.length){ L.innerHTML='<div class="empty">ما فيه رسايل هنا للحين</div>'; return; }
-    var c=document.createElement("div"); c.className="hint"; c.style.marginBottom="8px"; c.textContent="الاقتراحات: "+nS+" · المشاكل: "+nP; L.appendChild(c);
+    var c=document.createElement("div"); c.className="hint"; c.style.marginBottom="8px"; c.textContent="الاقتراحات: "+nS+" · المشاكل: "+nP+" · الاستفسارات: "+nQ; L.appendChild(c);
     a.forEach(function(m){
       var d=msgCard(m,true);
       if(!Object.keys(m.replies||{}).length){ var tg=document.createElement("span"); tg.className="newtag"; tg.textContent="بدون رد"; d.querySelector(".h").appendChild(tg) }
